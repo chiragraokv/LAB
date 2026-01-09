@@ -1,0 +1,29 @@
+(base) mca@computinglab26-16:~/240962180/lab1$ date
+Friday 09 January 2026 11:10:15 AM IST
+(base) mca@computinglab26-16:~/240962180/lab1$ echo "list all the files satisfying following criteria"
+list all the files satisfying following criteria
+(base) mca@computinglab26-16:~/240962180/lab1$ find . -type f -name '*[0-1]*'
+./Lab1_q2.txt
+./l1_q3.png
+./l1_q2.txt
+./l1_q2.png
+(base) mca@computinglab26-16:~/240962180/lab1$ find . -type f -name '*[0-1]*'
+./Lab1_q2.txt
+./l1_q3.png
+./l1_q2.txt
+./l1_q2.png
+(base) mca@computinglab26-16:~/240962180/lab1$ ls | grep -E '^[^aeiouAEIOU].{3,}$'
+l1_q2.png
+l1_q2.txt
+l1_q3.png
+Lab1_q2.txt
+Q3.txt
+test_file.txt
+(base) mca@computinglab26-16:~/240962180/lab1$ ls | grep -E '^.{4,}$'
+l1_q2.png
+l1_q2.txt
+l1_q3.png
+Lab1_q2.txt
+Q3.txt
+test_file.txt
+(base) mca@computinglab26-16:~/240962180/lab1$ 
