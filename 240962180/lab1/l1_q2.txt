@@ -1,0 +1,43 @@
+(base) mca@computinglab26-16:~/240962180/lab1$ date
+Friday 09 January 2026 10:08:29 AM IST
+(base) mca@computinglab26-16:~/240962180/lab1$ echo "explore the following commands along with their various options"
+explore the following commands along with their various options
+(base) mca@computinglab26-16:~/240962180/lab1$ echo "cat (variations used to create new files and append to exsisting ones"
+cat (variations used to create new files and append to exsisting ones
+(base) mca@computinglab26-16:~/240962180/lab1$ cat test_file.txt
+cat: test_file.txt: No such file or directory
+(base) mca@computinglab26-16:~/240962180/lab1$ touch test_file.txt
+(base) mca@computinglab26-16:~/240962180/lab1$ cat > test_file.txt 
+this line was added using cat>^C
+(base) mca@computinglab26-16:~/240962180/lab1$ cat >> test_file.txt 
+this line was appended using cat >>^C
+(base) mca@computinglab26-16:~/240962180/lab1$ echo "head and tail"
+head and tail
+(base) mca@computinglab26-16:~/240962180/lab1$ head -2 Lab1_q2.txt 
+base) mca@computinglab26-16:~/240962180/lab1$ date
+Friday 09 January 2026 09:59:37 AM IST
+(base) mca@computinglab26-16:~/240962180/lab1$ tail -2 Lab1_q2.txt 
+(base) mca@computinglab26-16:~/240962180/lab1$ whereis ls
+ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+(base) mca@computinglab26-16:~/240962180/lab1$ cp ~/240962180/
+file.txt                lab1/                   OS lab manual_2026.pdf  
+(base) mca@computinglab26-16:~/240962180/lab1$ cp ~/240962180/OS\ lab\ manual_2026.pdf ~/240962180/lab1/
+l1_q2.png      l1_q2.txt      Lab1_q2.txt    test_file.txt  
+(base) mca@computinglab26-16:~/240962180/lab1$ cp ~/240962180/OS\ lab\ manual_2026.pdf ~/240962180/lab1/
+l1_q2.png      l1_q2.txt      Lab1_q2.txt    test_file.txt  
+(base) mca@computinglab26-16:~/240962180/lab1$ cp ~/240962180/OS\ lab\ manual_2026.pdf ~/240962180/lab1/
+(base) mca@computinglab26-16:~/240962180/lab1$ ls
+ l1_q2.png   l1_q2.txt   Lab1_q2.txt  'OS lab manual_2026.pdf'   test_file.txt
+(base) mca@computinglab26-16:~/240962180/lab1$ cp -i ~/240962180/OS\ lab\ manual_2026.pdf ~/240962180/lab1/
+cp: overwrite '/home/mca/240962180/lab1/OS lab manual_2026.pdf'? n
+(base) mca@computinglab26-16:~/240962180/lab1$ mv -i ~/240962180/OS\ lab\ manual_2026.pdf ~/240962180/lab1/
+mv: overwrite '/home/mca/240962180/lab1/OS lab manual_2026.pdf'? n
+(base) mca@computinglab26-16:~/240962180/lab1$ rm -f OS\ lab\ manual_2026.pdf 
+(base) mca@computinglab26-16:~/240962180/lab1$ ls
+l1_q2.png  l1_q2.txt  Lab1_q2.txt  test_file.txt
+(base) mca@computinglab26-16:~/240962180/lab1$ cd ..
+(base) mca@computinglab26-16:~/240962180$ find -name "l1_q2.txt"
+./lab1/l1_q2.txt
+(base) mca@computinglab26-16:~/240962180$ find . -type f -name "*.pdf"
+./OS lab manual_2026.pdf
+(base) mca@computinglab26-16:~/240962180$ 

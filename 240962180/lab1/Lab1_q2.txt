@@ -1,0 +1,16 @@
+base) mca@computinglab26-16:~/240962180/lab1$ date
+Friday 09 January 2026 09:59:37 AM IST
+(base) mca@computinglab26-16:~/240962180/lab1$ echo "Execute and write output of any 5 important commands so far in this manual. Save the output in Lab_1.txt, Commands and output from commandline"
+Execute and write output of any 5 important commands so far in this manual. Save the output in Lab_1.txt, Commands and output from commandline
+(base) mca@computinglab26-16:~/240962180/lab1$ ls
+l1_q2.txt  Lab1_q2.txt
+(base) mca@computinglab26-16:~/240962180/lab1$ ls *txt
+l1_q2.txt  Lab1_q2.txt
+(base) mca@computinglab26-16:~/240962180/lab1$ cat >l1_q2.txt 
+this line was added using cat command ^C
+(base) mca@computinglab26-16:~/240962180/lab1$ pwd
+/home/mca/240962180/lab1
+(base) mca@computinglab26-16:~/240962180/lab1$ which grep
+/usr/bin/grep
+(base) mca@computinglab26-16:~/240962180/lab1$ whereis ls
+ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
