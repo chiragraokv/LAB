@@ -1,0 +1,285 @@
+create table classroom(
+building varchar(15),
+room_number varchar(7),
+capacity numeric(4,0),
+primary key (building,roolnumber));
+
+create table department(
+dept_name varchar(15),
+building varchar(50),
+budget numeric (12,2) check (budget > 0),
+primary (key dept_name));
+
+create table course (
+course_id varchar(8),
+title varchar(50),
+dept_name varchar(20),
+credits numeric (2,0) check (credits>0),
+primary key (course_id),
+foreign key (dept_name) references department on delete set null
+);
+
+create table instructor
+	(ID			varchar(5), 
+	 name			varchar(20) not null, 
+	 dept_name		varchar(20), 
+	 salary	numeric(8,2) check (salary > 29000),
+	 primary key (ID),
+	 foreign key (dept_name) references department
+		on delete set null
+	);
+
+create table section
+	(course_id		varchar(8), 
+         sec_id		varchar(8),
+	 semester		varchar(6)
+	check (semester in ('Fall', 'Winter', 'Spring', 'Summer')), 
+	 year	numeric(4,0) check (year > 1701 and year < 2100), 
+	 building		varchar(15),
+	 room_number	varchar(7),
+	 time_slot_id	varchar(4),
+	 primary key (course_id, sec_id, semester, year),
+	 foreign key (course_id) references course
+		on delete cascade,
+	 foreign key (building, room_number) references classroom
+		on delete set null
+	);
+
+create table teaches
+	(ID			varchar(5), 
+	 course_id		varchar(8),
+	 sec_id		varchar(8), 
+	 semester		varchar(6),
+	 year			numeric(4,0),
+	 primary key (ID, course_id, sec_id, semester, year),
+	 foreign key (course_id,sec_id, semester, year) references section on delete cascade,
+	 foreign key (ID) references instructor on delete cascade
+	);
+
+create table student
+	(ID			varchar(5), 
+	 name			varchar(20) not null, 
+	 dept_name		varchar(20), 
+	 tot_cred		numeric(3,0) check (tot_cred >= 0),
+	 primary key (ID),
+	 foreign key (dept_name) references department
+		on delete set null
+	);
+
+create table takes
+	(ID			varchar(5), 
+	 course_id		varchar(8),
+	 sec_id		varchar(8), 
+	 semester		varchar(6),
+	 year			numeric(4,0),
+	 grade		varchar(2),
+	 primary key (ID, course_id, sec_id, semester, year),
+	 foreign key (course_id,sec_id, semester, year) references section on delete cascade,
+	 foreign key (ID) references student on delete cascade
+	);
+
+create table advisor
+	(s_ID			varchar(5),
+	 i_ID			varchar(5),
+	 primary key (s_ID),
+	 foreign key (i_ID) references instructor (ID)
+		on delete set null,
+	 foreign key (s_ID) references student (ID)
+		on delete cascade
+	);
+
+create table time_slot
+	(time_slot_id		varchar(4),
+	 day			varchar(1),
+	 start_hr		numeric(2) check (start_hr >= 0 and start_hr < 24),
+	 start_min		numeric(2) check (start_min >= 0 and start_min < 60),
+	 end_hr		numeric(2) check (end_hr >= 0 and end_hr < 24),
+	 end_min		numeric(2) check (end_min >= 0 and end_min < 60),
+	 primary key (time_slot_id, day, start_hr, start_min)
+	);
+
+create table prereq
+	(course_id		varchar(8), 
+	 prereq_id		varchar(8),
+	 primary key (course_id, prereq_id),
+	 foreign key (course_id) references course
+		on delete cascade,
+	 foreign key (prereq_id) references course
+	);
+
+# inserting values into the table
+INSERT INTO instructor (id,name,dept_name,salary)
+VALUES ('i11','Deepayan','CSE',30000);
+
+INSERT INTO course  (course_id,title,dept_name,credits)
+VALUES ('12d','dbsl','CSE',4);
+INSERT INTO course  (course_id,title,dept_name,credits)
+VALUES ('13d','AIA','DSA',4);
+INSERT INTO course  (course_id,title,dept_name,credits)
+VALUES ('14d','DCCN','IT',2);
+INSERT INTO course  (course_id,title,dept_name,credits)
+VALUES ('14c','DSCO','CSE',3);
+INSERT INTO course  (course_id,title,dept_name,credits)
+VALUES ('12c','DSCRO','CSE',3);
+
+INSERT INTO Section (course_id, sec_id, semester, year, building, room_number, time_slot_id)
+VALUES ('12d', 'S1', 'Fall', 2024, 'Block A', '101', 'TS1');
+
+
+------------------------------------------------------------------
+9.List all Students with names and their department names.
+ans:
+SELECT s.name, s.dept_name
+FROM student s
+LEFT JOIN department d
+ON s.dept_name = d.dept_name;
+
+output:
+NAME                 DEPT_NAME
+-------------------- --------------------
+Ananya               CSE
+Rahul                DSA
+Meera                IT
+
+------------------------------------------------------------------
+10.List all instructors in CSE department.
+ans
+SELECT name, dept_name
+FROM instructor
+WHERE dept_name = 'CSE';
+output:
+NAME                 DEPT_NAME
+-------------------- --------------------
+Deepayan             CSE
+raviteja             CSE
+
+------------------------------------------------------------------
+11.Find the names of courses in CSE department which have 3 credits.
+ans
+SELECT c.title
+FROM course c
+WHERE c.credits = 3
+AND c.dept_name = 'CSE';
+
+OUTPUT
+TITLE
+--------------------------------------------------
+DSCO
+DSCRO
+
+------------------------------------------------------------------
+12.For the student with ID 12345 (or any other value), show all course-id and title of all courses registered for by the student.
+ans:
+SELECT c.course_id, c.title
+FROM takes t
+JOIN course c
+ON t.course_id = c.course_id
+WHERE t.ID = '12345';
+output;
+COURSE_I TITLE
+-------- --------------------------------------------------
+CS-101   Intro. to Computer Science
+CS-190   Game Design
+CS-315   Robotics
+CS-347   Database System Concepts
+
+------------------------------------------------------------------
+13.List all the instructors whose salary is in between 40000 and 90000.
+
+SELECT *
+FROM instructor
+WHERE salary BETWEEN 40000 AND 90000;
+OUTPUT:
+ID    NAME                 DEPT_NAME                SALARY
+----- -------------------- -------------------- ----------
+i21   riya                 IT                        40000
+i22   Rohan                DSA                       40000
+10101 Srinivasan           Comp. Sci.                65000
+12121 Wu                   Finance                   90000
+15151 Mozart               Music                     40000
+32343 El Said              History                   60000
+33456 Gold                 Physics                   87000
+45565 Katz                 Comp. Sci.                75000
+58583 Califieri            History                   62000
+76543 Singh                Finance                   80000
+76766 Crick                Biology                   72000
+
+ID    NAME                 DEPT_NAME                SALARY
+----- -------------------- -------------------- ----------
+98345 Kim                  Elec. Eng.                80000
+
+------------------------------------------------------------------
+14.Display the IDs of all instructors who have never taught a course.
+SELECT i.name
+FROM instructor i
+WHERE NOT EXISTS (
+    SELECT *
+    FROM teaches t
+    WHERE t.id = i.id
+);
+output:
+NAME
+--------------------
+riya
+raviteja
+Gold
+Deepayan
+Califieri
+Rohan
+Singh
+
+------------------------------------------------------------------
+15.find the student names, course names, and the year, for all students those who have attended classes in room-number 303.
+
+SELECT s.name,c.title,t.year
+FROM student s
+JOIN takes t
+    ON s.ID = t.ID
+JOIN course c
+    ON t.course_id = c.course_id
+JOIN section sec
+    ON t.course_id = sec.course_id
+   AND t.sec_id = sec.sec_id
+   AND t.semester = sec.semester
+   AND t.year = sec.year
+WHERE sec.room_number = 101;
+
+output:
+STUDENT_NAME         COURSE_NAME
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Levy                 Intro. to Computer Science
+      2009
+
+Levy                 Intro. to Computer Science
+      2010
+
+Shankar              Intro. to Computer Science
+      2009
+
+------------------------------------------------------------------
+16.For all students who have opted courses in 2015, find their names and course id’s with the attribute course title replaced by c-name.
+
+SELECT s.name, c.title AS c_name
+FROM student s
+JOIN takes t
+ON t.id = s.id
+AND t.year = 2010
+JOIN course c
+ON c.course_id = t.course_id;
+output:
+NAME                 C_NAME
+-------------------- --------------------------------------------------
+Tanaka               Genetics
+Levy                 Intro. to Computer Science
+Bourikas             Robotics
+Shankar              Robotics
+Brown                Image Processing
+Levy                 Image Processing
+Chavez               Investment Banking
+Brandt               World History
+Sanchez              Music Video Production
+
+------------------------------------------------------------------
+17.Find the names of all instructors whose salary is greater than the salary of at least one instructor of CSE department and salary replaced by inst-salary. String Operations (Use %, _, LIKE):
