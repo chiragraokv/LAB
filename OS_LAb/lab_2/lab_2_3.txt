@@ -1,0 +1,28 @@
+(base) mca@computinglab26-16:~/240962180/lab_2$ date
+Friday 16 January 2026 10:42:49 AM IST
+(base) mca@computinglab26-16:~/240962180/lab_2$ echo "Create file studentInformation.txt using vi editor which contains details in the
+following format."
+Create file studentInformation.txt using vi editor which contains details in the
+following format.
+(base) mca@computinglab26-16:~/240962180/lab_2$ vi stuinp.txt 
+(base) mca@computinglab26-16:~/240962180/lab_2$ grep -c "ITC" stuinp.txt
+5
+(base) mca@computinglab26-16:~/240962180/lab_2$ sed 's/:IT:/:Information Technology:/g' stuinp.txt | grep "Information Technology" stuinp.txt > ITstu.txt
+(base) mca@computinglab26-16:~/240962180/lab_2$ sed 's/:IT:/:Information Technology:/g' stuinp.txt 
+RegistrationNo:Name:Department:Branch:Section:Sub0:Sub2:Sub3
+1260:AZ:ITC:CCE:A:78:65:80
+1261:KZ:AI:Information Technology:B:88:72:91
+1262:LMZ:ITC:AIML:C:56:69:74
+1263:QWE:AI:CCE:A:90:85:88
+1264:ZRT:ITC:Information Technology:B:61:70:68
+1265:ABZ:AI:AIML:C:84:79:92
+1266:XY:ITC:CCE:A:45:60:55
+1267:PQZ:AI:Information Technology:B:73:66:71
+1268:MN:ITC:AIML:C:89:94:86
+1269:UZ:AI:CCE:A:52:48:63
+
+(base) mca@computinglab26-16:~/240962180/lab_2$ sed 's/:IT:/:Information Technology:/g' stuinp.txt > sinf.txt
+(base) mca@computinglab26-16:~/240962180/lab_2$ awk -F: '$1=="1260" { avg = ($6 + $7 + $8)/3; print "Average Marks =", avg }' stuinp.txt
+Average Marks = 74.3333
+(base) mca@computinglab26-16:~/240962180/lab_2$ nano lab_2_3.txt
+(base) mca@computinglab26-16:~/240962180/lab_2$ 

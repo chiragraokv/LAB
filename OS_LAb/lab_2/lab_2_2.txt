@@ -1,0 +1,23 @@
+(base) mca@computinglab26-16:~/240962180/lab_2$ date
+Friday 16 January 2026 10:12:42 AM IST
+(base) mca@computinglab26-16:~/240962180/lab_2$ echo "Write grep commands to do the following activities:"
+Write grep commands to do the following activities:
+(base) mca@computinglab26-16:~/240962180/lab_2$ grep "^..$" test_file.txt 
+22
+ac
+(base) mca@computinglab26-16:~/240962180/lab_2$ grep "^[A-z]" test_file.txt 
+grep: Invalid range end
+(base) mca@computinglab26-16:~/240962180/lab_2$ grep "^[A-Z]" test_file.txt 
+Lab
+(base) mca@computinglab26-16:~/240962180/lab_2$ grep "\." test_file.txt 
+.end
+(base) mca@computinglab26-16:~/240962180/lab_2$ grep " " test_file.txt 
+ac is working
+Lab started at 9
+(base) mca@computinglab26-16:~/240962180/lab_2$ grep '[0-9]' test_file.txt > out.txt
+(base) mca@computinglab26-16:~/240962180/lab_2$ cat out.txt 
+9
+22
+3
+Lab started at 9
+(base) mca@computinglab26-16:~/240962180/lab_2$ 

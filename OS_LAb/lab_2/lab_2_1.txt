@@ -1,0 +1,54 @@
+(base) mca@computinglab26-16:~/240962180/lab_2$ date
+Friday 16 January 2026 09:56:06 AM IST
+(base) mca@computinglab26-16:~/240962180/lab_2$  echo "Execute all the commands explained in this section and write the output."
+Execute all the commands explained in this section and write the output.
+(base) mca@computinglab26-16:~/240962180/lab_2$ 
+(base) mca@computinglab26-16:~/240962180/lab_2$ grep a test_file.txt 
+zebra
+ac
+(base) mca@computinglab26-16:~/240962180/lab_2$ grep -x ac test_file.txt 
+ac
+(base) mca@computinglab26-16:~/240962180/lab_2$ sort -n test_file.txt 
+
+ac
+zebra
+3
+9
+22
+(base) mca@computinglab26-16:~/240962180/lab_2$ sort -r test_file.txt 
+zebra
+ac
+9
+3
+22
+
+(base) mca@computinglab26-16:~/240962180/lab_2$ cut -c 1-3 test_file.txt 
+9
+22
+3
+zeb
+ac
+
+(base) mca@computinglab26-16:~/240962180/lab_2$ cut -b 1 test_file.txt 
+9
+2
+3
+z
+a
+
+(base) mca@computinglab26-16:~/240962180/lab_2$ ps
+    PID TTY          TIME CMD
+   5048 pts/2    00:00:00 bash
+   5098 pts/2    00:00:00 ps
+(base) mca@computinglab26-16:~/240962180/lab_2$ ls -l
+total 8
+-rw-rw-r-- 1 mca mca  0 Jan 16 09:42 q1.txt
+-rw-rw-r-- 1 mca mca 17 Jan 16 09:55 test_file.txt
+-------rwx 1 mca mca 26 Jan 16 09:54 test.txt
+(base) mca@computinglab26-16:~/240962180/lab_2$ chmod 3 test.txt 
+(base) mca@computinglab26-16:~/240962180/lab_2$ ls -l
+total 8
+-rw-rw-r-- 1 mca mca  0 Jan 16 09:42 q1.txt
+-rw-rw-r-- 1 mca mca 17 Jan 16 09:55 test_file.txt
+--------wx 1 mca mca 26 Jan 16 09:54 test.txt
+
