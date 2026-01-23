@@ -1,0 +1,105 @@
+(base) mca@computinglab26-16:~/240962180/lab_3$ date
+Friday 23 January 2026 10:14:38 AM IST
+(base) mca@computinglab26-16:~/240962180/lab_3$ echo "Write a shell script to find whether a given file is the directory or regular file."
+Write a shell script to find whether a given file is the directory or regular file.
+(base) mca@computinglab26-16:~/240962180/lab_3$ bash lab_3_q_1.sh 
+enter the path to the file
+folder/t.txt	
+folder/t.txt is a normal file
+end
+(base) mca@computinglab26-16:~/240962180/lab_3$ 
+
+
+
+(base) mca@computinglab26-16:~/240962180/lab_3$ date
+Friday 23 January 2026 11:17:17 AM IST
+(base) mca@computinglab26-16:~/240962180/lab_3$ echo "Write a shell script to list all files (only file names) containing the input pattern
+(string) in the folder entered by the user"
+Write a shell script to list all files (only file names) containing the input pattern
+(string) in the folder entered by the user
+(base) mca@computinglab26-16:~/240962180/lab_3$ bash lab_3_q_2.sh 
+lab_3_q_2.sh: line 1: !#/bin/sh: No such file or directory
+enter the folder path
+folder
+enter the string to  search for 
+hello
+folder/another_folder not a normal file
+Found in: folder/t2.text
+Found in: folder/t.text
+(base) mca@computinglab26-16:~/240962180/lab_3$ 
+    
+
+
+(base) mca@computinglab26-16:~/240962180/lab_3$ date
+Friday 23 January 2026 11:04:50 AM IST
+(base) mca@computinglab26-16:~/240962180/lab_3$ echo "Write a shell script to calculate the gross salary. GS=Basics + TA + 10% of Basics.
+Floating point calculations has to be performed."
+Write a shell script to calculate the gross salary. GS=Basics + TA + 10% of Basics.
+Floating point calculations has to be performed.
+(base) mca@computinglab26-16:~/240962180/lab_3$ bash lab_3_q_4.sh 
+base salary ans ta
+1000 3.4
+final salary 1103.4
+(base) mca@computinglab26-16:~/240962180/lab_3$ 
+
+
+(base) mca@computinglab26-16:~/240962180/lab_3$ date
+Friday 23 January 2026 11:18:14 AM IST
+(base) mca@computinglab26-16:~/240962180/lab_3$ echo "Write a shell script to replace all files with .txt extension with .text in the current di-
+rectory. This has to be done recursively i.e if the current folder contains a folder
+“OS” with abc.txt then it has to be changed to abc.text ( Hint: use find, mv )"
+Write a shell script to replace all files with .txt extension with .text in the current di-
+rectory. This has to be done recursively i.e if the current folder contains a folder
+“OS” with abc.txt then it has to be changed to abc.text ( Hint: use find, mv )  
+(base) mca@computinglab26-16:~/240962180/lab_3$ bash lab_3_q_3.sh 
+enter the folder name
+folder
+./t.txt is being renamed
+./t2.txt is being renamed
+./another_folder/another_text.txt is being renamed
+(base) mca@computinglab26-16:~/240962180/lab_3$ 
+
+
+
+
+
+(base) mca@computinglab26-16:~/240962180/lab_3/text$ date
+Friday 23 January 2026 11:13:59 AM IST
+(base) mca@computinglab26-16:~/240962180/lab_3/text$ echo "Write a program to copy all the files (having file extension input by the user) in the
+current folder to the new folder input by the user. ex: user enter .text TEXT then all
+files with .text should be moved to TEXT folder. This should be done only at single
+level. i.e if the current folder contains a folder name ABC which has .txt files then
+these files should not be copied to TEXT."
+Write a program to copy all the files (having file extension input by the user) in the
+current folder to the new folder input by the user. ex: user enter .text TEXT then all
+files with .text should be moved to TEXT folder. This should be done only at single
+level. i.e if the current folder contains a folder name ABC which has .txt files then
+these files should not be copied to TEXT.
+(base) mca@computinglab26-16:~/240962180/lab_3/text$ cd ..
+(base) mca@computinglab26-16:~/240962180/lab_3$ bash lab_3_q_5.sh 
+enter extension
+text
+enter destination folder name
+all_text
+current file ./text/t2.text
+current file ./text/t.text
+current file ./text/another_text.text
+current file ./folder/t2.text
+current file ./folder/another_folder/another_text.text
+current file ./folder/t.text
+(base) mca@computinglab26-16:~/240962180/lab_3$ ls all_text/
+another_text.text  t2.text  t.text
+(base) mca@computinglab26-16:~/240962180/lab_3$ 
+
+
+(base) mca@computinglab26-16:~/240962180/lab_3$ date
+Friday 23 January 2026 11:23:41 AM IST
+(base) mca@computinglab26-16:~/240962180/lab_3$ echo "6. Write a shell script which deletes all the even numbered lines in a text file."
+6. Write a shell script which deletes all the even numbered lines in a text file.
+(base) mca@computinglab26-16:~/240962180/lab_3$ bash lab_3_q_6.sh 
+Enter the filename:
+folder/t2.text	
+Even-numbered lines deleted from folder/t2.text
+(base) mca@computinglab26-16:~/240962180/lab_3$ 
+
+
