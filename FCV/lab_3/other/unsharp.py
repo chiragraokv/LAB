@@ -1,13 +1,10 @@
 import cv2 as cv
-import numpy as np
 
-image = cv.imread(r"D:\aiml_b\FCV\lab_2\fruits.jpg")
-blurred = cv.GaussianBlur(image, (3, 3), 2.0)
-amount = 3
-sub = image - blurred
-sharpened = cv.addWeighted(image, amount, blurred, -amount, 0)
-cv.imshow('sharpened_output.jpg', sharpened)
-cv.imshow('edges',sub)
-cv.imshow('blurred.jpg', blurred)
+image = cv.imread('/home/laserhammer/LAB/FCV/lab_2/gamma_10.png')
+blur = cv.GaussianBlur(image, (5, 5), 2.0)
+a = 1.5 
+unsharp = cv.addWeighted(image, a, blur, -a, 0)
+cv.imshow('Original Image', image)
+cv.imshow('Unsharp Image', unsharp)
 cv.waitKey(0)
 cv.destroyAllWindows()

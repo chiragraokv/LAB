@@ -2,8 +2,7 @@ import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
 
-image = cv.imread(r"D:\aiml_b\FCV\lab_2\fruits.jpg")
-image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+image = cv.imread("/home/laserhammer/LAB/FCV/lab_2/fruits.jpg", cv.IMREAD_GRAYSCALE)
 _, thr1 = cv.threshold(image,120,255,cv.THRESH_BINARY)
 _, thr2 = cv.threshold(image,120,255,cv.THRESH_BINARY_INV)
 _, thr3 = cv.threshold(image,120,255,cv.THRESH_TRUNC)

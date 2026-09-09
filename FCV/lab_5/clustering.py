@@ -7,7 +7,7 @@ images = []
 ks = []
 for k in range(2,8):                                                                      
     iterations = 10
-    image = cv.imread(r"D:\aiml_b\FCV\lab_2\fruits.jpg")
+    image = cv.imread("/home/laserhammer/LAB/FCV/lab_2/fruits.jpg")
     image = cv.GaussianBlur(image,(3,3),2)
     image= image/ 255
     color_palette = np.array([
