@@ -46,3 +46,4 @@ plt.show()
  # edge based segmentation roberts sobel laplacian and prewitt /
  # Region based segmenetaion: Assigning pizels to different regions
  # clusering segent an image into K color based regions using k means clustering algo /
+ 
